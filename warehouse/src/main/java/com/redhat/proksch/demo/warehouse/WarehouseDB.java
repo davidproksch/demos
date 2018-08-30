@@ -30,6 +30,8 @@ public class WarehouseDB {
 		.append(mysql_service.trim()).append("/")
 		.append(mysql_database.trim()).toString();
 
+	    System.err.println(mysql_url);
+
 	    try {
 	    	Class.forName ("com.mysql.cj.jdbc.Driver").newInstance ();
 		conn = DriverManager.getConnection (mysql_url, 
