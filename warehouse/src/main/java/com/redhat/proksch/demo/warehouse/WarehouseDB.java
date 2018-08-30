@@ -27,7 +27,9 @@ public class WarehouseDB {
 	    mysql_port = System.getenv("mysql_port");
 
             mysql_url = new StringBuffer("jdbc:mysql://")
-		.append(mysql_service.trim()).append("/")
+		.append(mysql_service.trim()).append(":")
+		.append(mysql_port.trim())
+		.append("/")
 		.append(mysql_database.trim()).toString();
 
 	    System.err.println(mysql_url);
@@ -37,6 +39,7 @@ public class WarehouseDB {
 		conn = DriverManager.getConnection (mysql_url, 
 			mysql_user.trim(), mysql_password.trim());
 
+		System.err.println(conn.isValid(10));
 		allWH = conn.prepareStatement("select count(*) from warehouse");
 
 		connGood = true;
