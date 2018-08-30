@@ -30,7 +30,7 @@ public class Warehouse extends AbstractVerticle {
 	Vertx vertx = Vertx.vertx();
 
     	Router router = Router.router(vertx);
-    	router.get("/").handler(rc -> rc.response().end("Hello"));
+    	router.get("/all/").handler(rc -> rc.response().end("From All"));
     	router.get("/:name").handler(rc -> rc.response().end("Hello " + rc.pathParam("name")));
 
     vertx.createHttpServer()
