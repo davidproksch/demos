@@ -39,7 +39,6 @@ public class WarehouseDB {
 		conn = DriverManager.getConnection (mysql_url, 
 			mysql_user.trim(), mysql_password.trim());
 
-		System.err.println(conn.isValid(10));
 		allWH = conn.prepareStatement("select count(*) from warehouse");
 
 		connGood = true;
@@ -54,6 +53,7 @@ public class WarehouseDB {
 		if (connGood) {
 			StringBuffer sb = new StringBuffer();
 			try {
+		System.err.println(conn.isValid(10));
 			ResultSet rs = allWH.executeQuery();
 			long c = rs.getLong(0);
 			sb = sb.append("Count: ")
