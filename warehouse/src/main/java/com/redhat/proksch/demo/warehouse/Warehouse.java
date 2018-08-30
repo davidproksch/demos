@@ -4,7 +4,7 @@ import io.vertx.core.Future;
 public class Warehouse extends AbstractVerticle {
     @Override
     public void start(Future<Void> fut) {
-	String s = System.getEnv("MYSQL_USER");
+	String s = System.getenv("MYSQL_USER");
 	s = "<h1>Hello " + s + " from Warehouse!</h1>";
         vertx
             .createHttpServer()
