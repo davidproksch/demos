@@ -20,8 +20,8 @@ app.get('/weather', function(req,res) {
 	var zip = req.query.zip;
 	
 	//res.send(getWeather(zip,wapi));
-	//getWeather(zip,wapi,res);
-	res.send('Hello World!');
+	getWeather(zip,wapi,res);
+	//res.send('Hello World!');
 });
 
 app.listen(port,ip);
