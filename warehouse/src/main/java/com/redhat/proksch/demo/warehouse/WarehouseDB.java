@@ -52,6 +52,11 @@ public class WarehouseDB {
 			.append("from warehouse order by w_id");
 		allWH = conn.prepareStatement(sb.toString());
 
+		sb = new StringBuffer("select w_id, w_name, ")
+			.append("w_street_1, w_city, w_state, w_zip ")
+			.append("from warehouse where w_id = ?");
+		oneWH = conn.prepareStatement(sb.toString());
+
 		connGood = true;
 	    }
 	    catch (Exception e) {
@@ -61,7 +66,36 @@ public class WarehouseDB {
 	}
 
   	public String getOneWarehouse(String id) {
-		return id;
+		int i_id = Integer.parseInt(id);
+		if (connGood) {
+           StringBuffer sb = new StringBuffer();
+            List<Map<String,String>> l = new ArrayList<Map<String,String>>();
+            Map<String,String> m = null;
+            try {
+                ResultSet rs = oneWH.executeQuery();
+                while (rs.next()) {
+                    m = new HashMap<String,String>();
+                    m.put("id",new Integer(rs.getInt(1)).toString());
+                    m.put("name",rs.getString(2));
+                    m.put("street",rs.getString(3));
+                    m.put("city",rs.getString(4));
+                    m.put("state",rs.getString(5));
+                    m.put("zip",rs.getString(6));
+                    l.add(m);
+                }
+                ObjectWriter ow = new ObjectMapper().writer()
+                    .withDefaultPrettyPrinter();
+                sb = sb.append(ow.writeValueAsString(l));
+                //sb = sb.append(l.toString());
+            }
+            catch (Exception e) {
+                sb = sb.append("Error -> ")
+                    .append(e.getMessage());
+            }
+            return sb.toString();
+		}
+		else 
+			return message.toString();		
 	}
 
 	public String getAllWarehouses() {
