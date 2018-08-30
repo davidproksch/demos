@@ -3,13 +3,11 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.ext.web.Router;
+
+import com.redhat.proksch.demo.warehouse.*;
+
 public class Warehouse extends AbstractVerticle {
-/*
-    private static String foo;
-    Warehouse() {
-	foo = "bar";
-    }
-*/
+
     private String message() {
 	String t = System.getenv("mysql_user");
 	String s = "<h1>Hello " + t + " from Warehouse!</h1>";
@@ -33,12 +31,14 @@ public class Warehouse extends AbstractVerticle {
                 }
             });
 	*/
+	WarehouseDB wdb = new WarehouseDB();
+
 	Vertx vertx = Vertx.vertx();
 
     	Router router = Router.router(vertx);
     	router.get("/all/").handler(rc -> 
 		rc.response()
-		.end("Hello World!") );
+		.end(wdb.getMysqlUser()) );
     	router.get("/:name").handler(rc -> rc.response().end("Hello " + rc.pathParam("name")));
 
     vertx.createHttpServer()
