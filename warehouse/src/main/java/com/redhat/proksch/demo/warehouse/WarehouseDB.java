@@ -60,6 +60,10 @@ public class WarehouseDB {
 
 	}
 
+  	public String getOneWarehouse(String id) {
+		return id;
+	}
+
 	public String getAllWarehouses() {
 		if (connGood) {
 			StringBuffer sb = new StringBuffer();

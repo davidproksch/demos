@@ -41,7 +41,11 @@ public class Warehouse extends AbstractVerticle {
 		.end(
 				wdb.getAllWarehouses()
 		) );
-    	router.get("/:name").handler(rc -> rc.response().end("Hello " + rc.pathParam("name")));
+    	router.get("/one/:id").handler(rc -> 
+		rc.response()
+		.end(
+				wdb.getOneWarehouse(rc.pathParam("name"))
+		) );
 
     vertx.createHttpServer()
       .requestHandler(router::accept)
