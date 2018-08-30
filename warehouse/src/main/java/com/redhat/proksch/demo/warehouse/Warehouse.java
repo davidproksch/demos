@@ -5,7 +5,7 @@ public class Warehouse extends AbstractVerticle {
     private String message() {
 	String s = System.getenv("mysql-demo-user");
 	String t = System.getenv("mysql_user");
-	s = "<h1>Hello " + s + ":" + " from Warehouse!</h1>";
+	s = "<h1>Hello " + s + ":" + t + " from Warehouse!</h1>";
 	return(s);
     }
 
