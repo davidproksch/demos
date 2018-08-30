@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "weather.js"
+    "start": "server.js"
   },
   "repository": {
     "type": "git",
