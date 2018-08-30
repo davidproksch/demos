@@ -4,14 +4,15 @@ import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.ext.web.Router;
 public class Warehouse extends AbstractVerticle {
-
+/*
     private static String foo;
     Warehouse() {
 	foo = "bar";
     }
+*/
     private String message() {
 	String t = System.getenv("mysql_user");
-	String s = "<h1>Hello " + foo + " from Warehouse!</h1>";
+	String s = "<h1>Hello " + t + " from Warehouse!</h1>";
 	return(s);
     }
 
