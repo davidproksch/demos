@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
+import com.fasterxml.jackson.databind.ObjectMapper; 
+import com.fasterxml.jackson.databind.ObjectWriter;
+
 public class WarehouseDB {
 
         private String mysql_user = "not set";
@@ -74,7 +77,10 @@ public class WarehouseDB {
 					m.put("zip",rs.getString(6));
 					l.add(m);
 				}
-				sb = sb.append(l.toString());
+				ObjectWriter ow = new ObjectMapper().writer()
+					.withDefaultPrettyPrinter();
+				sb = sb.append(ow.writeValueAsString(l));
+				//sb = sb.append(l.toString());
 			}
 			catch (Exception e) {
 				sb = sb.append("Error -> ")
