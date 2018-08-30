@@ -6,7 +6,7 @@ import io.vertx.ext.web.Router;
 public class Warehouse extends AbstractVerticle {
 
     private static String foo;
-    private static void Warehouse() {
+    Warehouse() {
 	foo = "bar";
     }
     private String message() {
