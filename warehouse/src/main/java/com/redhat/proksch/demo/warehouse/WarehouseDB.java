@@ -2,6 +2,8 @@ package com.redhat.proksch.demo.warehouse;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class WarehouseDB {
 
@@ -14,6 +16,8 @@ public class WarehouseDB {
 	private StringBuffer message = null;
         private boolean connGood = false;
         private Connection conn = null;
+	private PreparedStatement allWH = null;
+	private PreparedStatement oneWH = null;
 
 	WarehouseDB() {
 	    mysql_user = System.getenv("mysql_user");
@@ -30,6 +34,9 @@ public class WarehouseDB {
 	    	Class.forName ("com.mysql.cj.jdbc.Driver").newInstance ();
 		conn = DriverManager.getConnection (mysql_url, 
 			mysql_user.trim(), mysql_password.trim());
+
+		allWH = conn.prepareStatement("select count(*) from warehouse");
+
 		connGood = true;
 	    }
 	    catch (Exception e) {
@@ -39,8 +46,19 @@ public class WarehouseDB {
 	}
 
 	public String getAllWarehouses() {
-		if (connGood)
-			return new String("All Warehouses!");
+		if (connGood) {
+			StringBuffer sb = new StringBuffer();
+			try {
+			ResultSet rs = allWH.executeQuery();
+			long c = rs.getLong(0);
+			sb = sb.append("Count: ")
+				.append(c);
+			}
+			catch (Exception e) {
+				sb = sb.append(e.getMessage());
+			}	
+			return sb.toString();
+		}
 		else
 			return message.toString();
 	}
