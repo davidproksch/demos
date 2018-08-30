@@ -11,7 +11,7 @@ public class Warehouse extends AbstractVerticle {
     }
     private String message() {
 	String t = System.getenv("mysql_user");
-	String s = "<h1>Hello " + t + " from Warehouse!</h1>";
+	String s = "<h1>Hello " + foo + " from Warehouse!</h1>";
 	return(s);
     }
 
@@ -35,7 +35,7 @@ public class Warehouse extends AbstractVerticle {
 	Vertx vertx = Vertx.vertx();
 
     	Router router = Router.router(vertx);
-    	router.get("/all/").handler(rc -> rc.response().end(foo));
+    	router.get("/all/").handler(rc -> rc.response().end(message()));
     	router.get("/:name").handler(rc -> rc.response().end("Hello " + rc.pathParam("name")));
 
     vertx.createHttpServer()
