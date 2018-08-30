@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+
 public class WarehouseDB {
 
         private String mysql_user = "not set";
@@ -39,7 +44,10 @@ public class WarehouseDB {
 		conn = DriverManager.getConnection (mysql_url, 
 			mysql_user.trim(), mysql_password.trim());
 
-		allWH = conn.prepareStatement("select count(*) from warehouse");
+		StringBuffer sb = new StringBuffer("select w_id, w_name ")
+			.append("w_street1, w_city, w_state, w_zip ")
+			.append("from warehouse order by w_id");
+		allWH = conn.prepareStatement(sb.toString());
 
 		connGood = true;
 	    }
@@ -52,13 +60,21 @@ public class WarehouseDB {
 	public String getAllWarehouses() {
 		if (connGood) {
 			StringBuffer sb = new StringBuffer();
+			List<Map<String,String>> l = new ArrayList<Map<String,String>>();
+			Map<String,String> m = null;
 			try {
-		System.err.println(conn.isValid(10));
-			ResultSet rs = allWH.executeQuery();
-			rs.next();
-			long c = rs.getLong(1);
-			sb = sb.append("Count: ")
-				.append(c);
+				ResultSet rs = allWH.executeQuery();
+				while (rs.next()) {
+					m = new HashMap<String,String>();
+					m.put("id",new Integer(rs.getInt(1)).toString());
+					m.put("name",rs.getString(2));
+					m.put("street",rs.getString(3));
+					m.put("city",rs.getString(4));
+					m.put("state",rs.getString(5));
+					m.put("zip",rs.getString(6));
+					l.add(m);
+				}
+				sb = sb.append(l.toString());
 			}
 			catch (Exception e) {
 				sb = sb.append("Error -> ")
