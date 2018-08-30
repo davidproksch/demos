@@ -45,7 +45,7 @@ public class WarehouseDB {
 			mysql_user.trim(), mysql_password.trim());
 
 		StringBuffer sb = new StringBuffer("select w_id, w_name, ")
-			.append("w_street1, w_city, w_state, w_zip ")
+			.append("w_street_1, w_city, w_state, w_zip ")
 			.append("from warehouse order by w_id");
 		allWH = conn.prepareStatement(sb.toString());
 
