@@ -3,8 +3,9 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 public class Warehouse extends AbstractVerticle {
     private String message() {
-	String s = System.getenv("MYSQL_USER");
-	s = "<h1>Hello " + s + " from Warehouse!</h1>";
+	String s = System.getenv("mysql-demo-user");
+	String t = System.getenv("mysql_user");
+	s = "<h1>Hello " + s + ":" + " from Warehouse!</h1>";
 	return(s);
     }
 
