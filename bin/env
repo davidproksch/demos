@@ -1,0 +1,7 @@
+export OC_TOKEN=<myToken>
+export PROJECT_NAME=<My Project>
+
+# MySQL parameters
+export MYSQL_USER=<My SQL UserID> 
+export MYSQL_PASSWORD=<My SQL Password> 
+export MYSQL_DATABASE=<My Database>

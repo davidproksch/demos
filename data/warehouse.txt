@@ -1,0 +1,10 @@
+1	Blue Water Depot	1800 Huron Ave	PH	Marysville	MI	48040	0.06	3000000
+2	Lone Star Depot	650 S. Griffin St	PH	Dallas	TX	75202	0.14	3000000
+3	Bangor Depot	287 Godfrey Blvd.	PH	Bangor	ME	04401	0.13	3000000
+4	KC Depot	1843 Village W Pkwy	PH	Kansas City	KS	66109	0.19	3000000
+5	Surprise Storage	15930 N. Bullard Ave.	PH	Surprise	AZ	85374	0.2	3000000
+6	Memphis Warehouse	2491 Winchester Rd	PH	Memphis	TN	38116	0.17	3000000
+7	Jaguar Warehouse	370 Zoo Parkway	PH	Jacksonville	FL	32218	0.18	3000000
+8	Rose City Depot	2 SW Naito Pkwy	PH	Portland	OR	97204	0.14	3000000
+9	Twin Citys Warehouse	644 Bayfield St.	PH	St. Paul	MN	55107	0.19	3000000
+10	Ruby Depot	3400 W. Ruby Hill Dr	PH	Pleasanton	CA	94556	0.15	3000000
