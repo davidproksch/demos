@@ -27,7 +27,7 @@ public class WarehouseDB {
 		.append(mysql_database.trim()).toString();
 
 	    try {
-	    	Class.forName ("com.mysql.jdbc.Driver").newInstance ();
+	    	Class.forName ("com.mysql.cj.jdbc.Driver").newInstance ();
 		conn = DriverManager.getConnection (mysql_url, 
 			mysql_user.trim(), mysql_password.trim());
 		connGood = true;
