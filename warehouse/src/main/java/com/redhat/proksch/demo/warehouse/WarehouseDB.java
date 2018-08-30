@@ -1,5 +1,8 @@
 package com.redhat.proksch.demo.warehouse;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public class WarehouseDB {
 
         private String mysql_user = "not set";
@@ -10,6 +13,7 @@ public class WarehouseDB {
 	private String mysql_url = "not set";
 	private StringBuffer message = null;
         private boolean connGood = false;
+        private Connection conn = null;
 
 	WarehouseDB() {
 	    mysql_user = System.getenv("mysql_user");
@@ -24,6 +28,8 @@ public class WarehouseDB {
 
 	    try {
 	    	Class.forName ("com.mysql.jdbc.Driver").newInstance ();
+		conn = DriverManager.getConnection (mysql_url, 
+			mysql_user.trim(), mysql_password.trim());
 		connGood = true;
 	    }
 	    catch (Exception e) {
