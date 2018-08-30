@@ -55,7 +55,8 @@ public class WarehouseDB {
 			try {
 		System.err.println(conn.isValid(10));
 			ResultSet rs = allWH.executeQuery();
-			long c = 1; //rs.getLong(0);
+			rs.next();
+			long c = rs.getLong(0);
 			sb = sb.append("Count: ")
 				.append(c);
 			}
