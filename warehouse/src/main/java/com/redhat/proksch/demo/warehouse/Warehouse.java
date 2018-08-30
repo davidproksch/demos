@@ -1,10 +1,12 @@
 package com.redhat.proksch.demo.warehouse;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
+import io.vertx.core.Vertx;
+import io.vertx.ext.web.Router;
 public class Warehouse extends AbstractVerticle {
     private String message() {
 	String t = System.getenv("mysql_user");
-	s = "<h1>Hello " + s + ":" + t + " from Warehouse!</h1>";
+	String s = "<h1>Hello " + t + " from Warehouse!</h1>";
 	return(s);
     }
 
@@ -25,15 +27,14 @@ public class Warehouse extends AbstractVerticle {
                 }
             });
 	*/
-Vertx vertx = Vertx.vertx();
+	Vertx vertx = Vertx.vertx();
 
-    Router router = Router.router(vertx);
-    router.get("/").handler(rc -> rc.response().end("Hello"));
-    router.get("/:name").handler(rc -> rc.response().end("Hello " + rc.pathParam("name")));
+    	Router router = Router.router(vertx);
+    	router.get("/").handler(rc -> rc.response().end("Hello"));
+    	router.get("/:name").handler(rc -> rc.response().end("Hello " + rc.pathParam("name")));
 
     vertx.createHttpServer()
       .requestHandler(router::accept)
       .listen(8080);
   }
-    }
 }
