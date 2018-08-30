@@ -55,7 +55,8 @@ public class WarehouseDB {
 				.append(c);
 			}
 			catch (Exception e) {
-				sb = sb.append(e.getMessage());
+				sb = sb.append("Error -> ")
+					.append(e.getMessage());
 			}	
 			return sb.toString();
 		}
