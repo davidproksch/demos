@@ -72,6 +72,7 @@ public class WarehouseDB {
             List<Map<String,String>> l = new ArrayList<Map<String,String>>();
             Map<String,String> m = null;
             try {
+				oneWH.setInt(1,i_id);
                 ResultSet rs = oneWH.executeQuery();
                 while (rs.next()) {
                     m = new HashMap<String,String>();
