@@ -38,7 +38,7 @@ public class Warehouse extends AbstractVerticle {
     	Router router = Router.router(vertx);
     	router.get("/all/").handler(rc -> 
 		rc.response()
-		.end(wdb.getMysqlUser()) );
+		.end(wdb.getAllWarehouses()) );
     	router.get("/:name").handler(rc -> rc.response().end("Hello " + rc.pathParam("name")));
 
     vertx.createHttpServer()
