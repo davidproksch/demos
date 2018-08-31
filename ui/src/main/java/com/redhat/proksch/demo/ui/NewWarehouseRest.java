@@ -16,6 +16,8 @@ public class NewWarehouseRest {
         public void getAllWarehouses() {
 		String warehouseService = System.getenv("warehouse_rest_svc");
 		String warehousePath = System.getenv("warehouse_rest_path");
+		System.out.println("---------> " + warehouseService);
+		System.out.println("---------> " + warehousePath);
 		String s;
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(warehouseService).path(warehousePath);
