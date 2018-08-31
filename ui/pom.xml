@@ -14,7 +14,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.redhat.proksch.demo</groupId>
-	<artifactId>presentation</artifactId>
+	<artifactId>ui</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>Presentation</name>
