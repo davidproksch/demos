@@ -16,10 +16,11 @@ public class NewWarehouseRest {
         public void getAllWarehouses() {
 		String warehouseService = System.getenv("warehouse_rest_svc");
 		String warehousePath = System.getenv("warehouse_rest_path");
+		String s;
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(warehouseService).path(warehousePath);
 		Response response = target.request(MediaType.APPLICATION_JSON).get();
-		System.out.println(response.readEntity());
+		System.out.println(response.readEntity(new GenericType<String>));
         }
 
 
