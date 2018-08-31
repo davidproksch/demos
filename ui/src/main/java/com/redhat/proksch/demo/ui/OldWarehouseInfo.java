@@ -55,6 +55,7 @@ public class OldWarehouseInfo {
                 oneWH = conn.prepareStatement(sb.toString());
 
                 connGood = true;
+		System.err.println("------->>>> Conn is GOOD!");
             }
             catch (Exception e) {
                 message = new StringBuffer(e.getMessage());
