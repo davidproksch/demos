@@ -23,8 +23,6 @@ l.forEach(item -> {
 %>
 <tr>
 <td> <%= item.get("name") %> </td>
-<td> <%= item.get("city") %> </td>
-<td> <%= item.get("state") %> </td>
 </tr>
 <%
 });
