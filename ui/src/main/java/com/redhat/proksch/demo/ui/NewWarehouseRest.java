@@ -29,7 +29,7 @@ public class NewWarehouseRest {
 		try {
 			warehouses = mapper.readValue(j, List.class);
 			warehouses.forEach(w -> {
-				System.out.println(w);
+				System.out.println(w.get("name"));
 			});
 		}
 		catch (Exception e) {
