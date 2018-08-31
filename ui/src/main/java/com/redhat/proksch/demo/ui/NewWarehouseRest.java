@@ -25,7 +25,13 @@ public class NewWarehouseRest {
 		Response response = target.request(MediaType.APPLICATION_JSON).get();
 		String j = response.readEntity(String.class);
 		ObjectMapper mapper = new ObjectMapper();
-		List<String> warehouses = mapper.readValue(j, List.class);
+		List<String> warehouses;
+		try {
+			warehouses = mapper.readValue(j, List.class);
+		}
+		catch (Exception e) {
+			warehouses.add("Something went WRONG!!!!!");
+		}
 		System.out.println(warehouses);
         }
 
