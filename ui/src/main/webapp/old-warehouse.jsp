@@ -21,9 +21,17 @@ StringBuffer sb = new StringBuffer();
 List<Map<String,String>> l = owi.getAllWarehouses(); 
 l.forEach(item -> {
 	//System.err.println(item.get("name"));
-	sb.append("<tr>").append("<td>")
+	sb.append("<tr>")
+		.append("<td>")
 		.append(item.get("name"))
-		.append("</td>").append("</tr>");
+		.append("</td>")
+		.append("<td>")
+		.append(item.get("city"))
+		.append("</td>")
+		.append("<td>")
+		.append(item.get("state"))
+		.append("</td>")
+		.append("</tr>");
 });
 %>
 <%= sb.toString() %>
