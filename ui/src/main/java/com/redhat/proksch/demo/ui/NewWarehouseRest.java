@@ -25,7 +25,7 @@ public class NewWarehouseRest {
 		Response response = target.request(MediaType.APPLICATION_JSON).get();
 		String j = response.readEntity(String.class);
 		ObjectMapper mapper = new ObjectMapper();
-		List<String> warehouses;
+		List<Map> warehouses;
 		try {
 			warehouses = mapper.readValue(j, List.class);
 			warehouses.forEach(w -> {
