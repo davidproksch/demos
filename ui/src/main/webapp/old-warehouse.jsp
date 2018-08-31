@@ -20,7 +20,7 @@ owi.connectToDB();
 List<Map<String,String>> l = owi.getAllWarehouses(); 
 l.forEach(item -> {
 	System.err.println(item);
-}
+};
 %>
 </table>
 </body>
