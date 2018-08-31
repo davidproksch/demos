@@ -3,6 +3,6 @@
 <body>
 <H1>Hello from index</H1>
 </hr>
-<H1> <% A.getMessage() %>
+<H1> <% A.getMessage(); %>
 </body>
 </html>
