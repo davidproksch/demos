@@ -12,6 +12,7 @@ owi.connectToDB();
 <body>
 <center><H1>Old Warehouse Information</H1></center>
 <hr></hr>
+<center>
 <table>
 <tr>
 <td>Name</td><td>City</td><td>State</td>
@@ -36,5 +37,6 @@ l.forEach(item -> {
 %>
 <%= sb.toString() %>
 </table>
+</center>
 </body>
 </html>
