@@ -30,6 +30,7 @@ public class NewWarehouseRest {
 			warehouses = mapper.readValue(j, List.class);
 		}
 		catch (Exception e) {
+			warehouses = new ArrayList();
 			warehouses.add("Something went WRONG!!!!!");
 		}
 		System.out.println(warehouses);
