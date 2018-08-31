@@ -11,6 +11,8 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class NewWarehouseRest {
 
         public void getAllWarehouses() {
@@ -18,11 +20,13 @@ public class NewWarehouseRest {
 		String warehousePath = System.getenv("warehouse_rest_path");
 		System.out.println("---------> " + warehouseService);
 		System.out.println("---------> " + warehousePath);
-		String s;
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(warehouseService).path(warehousePath);
 		Response response = target.request(MediaType.APPLICATION_JSON).get();
-		System.out.println(response.readEntity(String.class));
+		String j = response.readEntity(String.class);
+		ObjectMapper mapper = new ObjectMapper();
+		List<String> warehouses = mapper.readValue(j, List.class);
+		System.out.println(warehouses);
         }
 
 
