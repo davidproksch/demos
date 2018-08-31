@@ -1,4 +1,6 @@
 <%@page import="com.redhat.proksch.demo.ui.OldWarehouseInfo"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Map"%>
 <%
 OldWarehouseInfo owi = new OldWarehouseInfo();
 owi.connectToDB();
@@ -10,6 +12,20 @@ owi.connectToDB();
 <body>
 <center><H1>Old Warehouse Information</H1></center>
 <hr></hr>
-<H1> <%= owi.getAllWarehouses() %> </H1>
+<table>
+<th>
+<td>Name</td><td>City</td><td>State</td>
+</th>
+<%
+List l = owi.getAllWarehouses(); 
+for (r : l) {
+%>
+<tr>
+<td> <%= r.get("name") %> </td>
+</tr>
+<%
+}
+%>
+</table>
 </body>
 </html>
