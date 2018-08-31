@@ -2,7 +2,7 @@ drop table if exists warehouse;
 
 create table warehouse (
 w_id smallint not null,
-w_name varchar(10), 
+w_name varchar(75), 
 w_street_1 varchar(20), 
 w_street_2 varchar(20), 
 w_city varchar(20), 
