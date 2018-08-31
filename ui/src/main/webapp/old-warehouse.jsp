@@ -13,9 +13,9 @@ owi.connectToDB();
 <center><H1>Old Warehouse Information</H1></center>
 <hr></hr>
 <table>
-<th>
+<tr>
 <td>Name</td><td>City</td><td>State</td>
-</th>
+</tr>
 <%
 StringBuffer sb = new StringBuffer();
 List<Map<String,String>> l = owi.getAllWarehouses(); 
