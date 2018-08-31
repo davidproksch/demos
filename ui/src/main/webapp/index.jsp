@@ -1,4 +1,4 @@
-<@page import="com.redhat.proksch.demo.ui.A"%>
+<%@page import="com.redhat.proksch.demo.ui.A"%>
 <html>
 <body>
 <H1>Hello from index</H1>
