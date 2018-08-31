@@ -19,7 +19,7 @@ owi.connectToDB();
 <%
 List<Map<String,String>> l = owi.getAllWarehouses(); 
 Map<String,String> r;
-for (r : l) {
+for (r<Map<String,String>> : l) {
 %>
 <tr>
 <td> <%= r.get("name") %> </td>
