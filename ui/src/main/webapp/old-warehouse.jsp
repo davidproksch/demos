@@ -17,7 +17,7 @@ owi.connectToDB();
 <td>Name</td><td>City</td><td>State</td>
 </th>
 <%
-List l = owi.getAllWarehouses(); 
+List<Map<String,String>> l = owi.getAllWarehouses(); 
 Map<String,String> r;
 for (r : l) {
 %>
