@@ -34,8 +34,9 @@ public class NewWarehouseRest {
 		}
 		catch (Exception e) {
 			warehouses = new ArrayList();
-			warehouses.add("Something went WRONG!!!!!");
-			warehouses.add(e.getMessage());
+			Map m = new HashMap();
+			m.put("WRONG",e.getMessage);
+			warehouses.add(m);
 		}
 		System.out.println(warehouses);
         }
