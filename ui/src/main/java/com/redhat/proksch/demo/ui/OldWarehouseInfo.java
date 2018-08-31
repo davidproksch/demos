@@ -84,10 +84,13 @@ public class OldWarehouseInfo {
                                         .append(e.getMessage());
 				System.err.println(sb.toString());
                         }
+			System.err.println("Returning l");
                         return l;
                 }
-                else
+                else {
+			System.err.println("Conn NOT GOOD");
                         return l; //message.toString();
+		}
         }
 
 
