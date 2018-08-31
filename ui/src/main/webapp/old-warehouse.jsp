@@ -1,6 +1,7 @@
 <%@page import="com.redhat.proksch.demo.ui.OldWarehouseInfo"%>
 <%
 OldWarehouseInfo owi = new OldWarehouseInfo();
+owi.connectToDB();
 %>
 <html>
 <head>
