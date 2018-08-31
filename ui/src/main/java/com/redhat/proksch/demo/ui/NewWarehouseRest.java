@@ -35,6 +35,7 @@ public class NewWarehouseRest {
 		catch (Exception e) {
 			warehouses = new ArrayList();
 			warehouses.add("Something went WRONG!!!!!");
+			warehouses.add(e.getMessage());
 		}
 		System.out.println(warehouses);
         }
