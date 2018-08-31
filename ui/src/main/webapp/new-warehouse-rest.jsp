@@ -17,8 +17,24 @@ NewWarehouseRest nwi = new NewWarehouseRest();
 <td>Name</td><td>City</td><td>State</td>
 </tr>
 <%
-nwi.getAllWarehouses();
+StringBuffer sb = new StringBuffer();
+List<Map<String,String>> l = nwi.getAllWarehouses();
+l.forEach(item -> {
+        //System.err.println(item.get("name"));
+        sb.append("<tr>")
+                .append("<td>")
+                .append(item.get("name"))
+                .append("</td>")
+                .append("<td>")
+                .append(item.get("city"))
+                .append("</td>")
+                .append("<td>")
+                .append(item.get("state"))
+                .append("</td>")
+                .append("</tr>");
+});
 %>
+<%= sb.toString() %>
 </table>
 </center>
 </body>
