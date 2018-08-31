@@ -28,6 +28,9 @@ public class NewWarehouseRest {
 		List<String> warehouses;
 		try {
 			warehouses = mapper.readValue(j, List.class);
+			warehouses.forEach(w -> {
+				System.out.println(w);
+			});
 		}
 		catch (Exception e) {
 			warehouses = new ArrayList();
