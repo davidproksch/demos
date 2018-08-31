@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class NewWarehouseRest {
 
-        public void getAllWarehouses() {
+        public List<Map<String,String>> getAllWarehouses() {
 		String warehouseService = System.getenv("warehouse_rest_svc");
 		String warehousePath = System.getenv("warehouse_rest_path");
 		System.out.println("---------> " + warehouseService);
@@ -25,7 +25,7 @@ public class NewWarehouseRest {
 		Response response = target.request(MediaType.APPLICATION_JSON).get();
 		String j = response.readEntity(String.class);
 		ObjectMapper mapper = new ObjectMapper();
-		List<Map> warehouses;
+		List<Map<String,String>> warehouses;
 		try {
 			warehouses = mapper.readValue(j, List.class);
 			warehouses.forEach(w -> {
@@ -38,7 +38,8 @@ public class NewWarehouseRest {
 			m.put("WRONG",e.getMessage());
 			warehouses.add(m);
 		}
-		System.out.println(warehouses);
+		//System.out.println(warehouses);
+		return warehouses;
         }
 
 
