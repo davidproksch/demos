@@ -1,6 +1,6 @@
-<%@page import="com.redhat.proksch.demo.ui.A"%>
+<%@page import="com.redhat.proksch.demo.ui.OldWarehouseInfo"%>
 <%
-A aa = new A();
+OldWarehouseInfo owi = new OldWarehouseInfo();
 %>
 <html>
 <head>
@@ -9,6 +9,6 @@ A aa = new A();
 <body>
 <center><H1>Old Warehouse Information</H1></center>
 <hr></hr>
-<H1> <%= aa.getMessage() %> </H1>
+<H1> <%= owi.getAllWarehouses() %> </H1>
 </body>
 </html>
