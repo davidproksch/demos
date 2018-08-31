@@ -17,11 +17,16 @@ owi.connectToDB();
 <td>Name</td><td>City</td><td>State</td>
 </th>
 <%
+StringBuffer sb = new StringBuffer();
 List<Map<String,String>> l = owi.getAllWarehouses(); 
 l.forEach(item -> {
-	System.err.println(item.get("name"));
+	//System.err.println(item.get("name"));
+	sb.append("<tr>").append("<td>")
+		.append(item.get("name"))
+		.append("</td>").append("</tr>");
 });
 %>
+<%= sb.toString() %>
 </table>
 </body>
 </html>
