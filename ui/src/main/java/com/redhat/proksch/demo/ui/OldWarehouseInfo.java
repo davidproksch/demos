@@ -58,6 +58,7 @@ public class OldWarehouseInfo {
             }
             catch (Exception e) {
                 message = new StringBuffer(e.getMessage());
+		System.err.println("========>>>>> " + message.toString());
             }
 
 	}
