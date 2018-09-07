@@ -48,7 +48,18 @@ public class GetWeather{
 
 	@PostMapping("/weather/stash")
 	public void getWeather(@RequestBody Weather weather) {
-		System.err.println(weather);
+		StringBuffer url = new StringBuffer("http://datagrid-app-mbodemo.6923.rh-us-east-1.openshiftapps.com");
+		RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(setMessageConverters());
+
+                HttpHeaders headers = new HttpHeaders();
+                headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+                HttpEntity<Weather> entity; 
+		entity = new HttpEntity<Weather>(weather, headers);
+	
+		StringBuffer u = new StringBuffer(url)append("/rest/weather/").append(weather.getZip().trim());	
+		restTemplate.exchange(u.toString(), HttpMethod.POST,
+                                entity, Weather.class);
 
 	}
 
