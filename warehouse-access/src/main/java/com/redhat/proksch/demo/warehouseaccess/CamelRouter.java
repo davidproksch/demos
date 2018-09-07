@@ -36,24 +36,15 @@ public class CamelRouter extends RouteBuilder {
 
 	from("direct:getWarehouses")
             .to("log:com.redhat.proksch?level=DEBUG")
-	    .to("jetty://http://warehouse-00-mbodemo.6923.rh-us-east-1.openshiftapps.com/all?bridgeEndpoint=true")
+	    .to("jetty://http://warehouse-00-mbodemo.b9ad.pro-us-east-1.openshiftapps.com/all/?bridgeEndpoint=true")
 	    .removeHeaders("CamelHttp*")
 	    .to("direct:processWeather");
 //
-        rest("/hello/").description("Greetings to {name}")
-            .get("/{name}").outType(Greetings.class)
-                .route().routeId("greeting-api")
-                .to("direct:processWeather");
-
         from("direct:processWeather").description("Take the list of warehouses and get weather information for each one")
             .streamCaching()
             .to("bean:warehousesService?method=getWarehouses");     
 
 
-        from("direct:greetingsImpl").description("Greetings REST service implementation route")
-            .streamCaching()
-            .to("bean:greetingsService?method=getGreetings");     
-        // @formatter:on
     }
 
 }

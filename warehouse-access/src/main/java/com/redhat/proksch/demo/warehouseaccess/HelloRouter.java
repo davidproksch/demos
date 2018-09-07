@@ -29,15 +29,17 @@ public class HelloRouter extends RouteBuilder {
             .component("servlet")
             .bindingMode(RestBindingMode.json);
         
-        rest("/hi/").description("Greetings to {name}")
+//
+        rest("/hello/").description("Greetings to {name}")
             .get("/{name}").outType(Greetings.class)
                 .route().routeId("greeting-api")
-                .to("direct:processWeather");
+                .to("direct:greetingsImpl");
 
         from("direct:greetingsImpl").description("Greetings REST service implementation route")
             .streamCaching()
             .to("bean:greetingsService?method=getGreetings");     
         // @formatter:on
+
     }
 
 }
