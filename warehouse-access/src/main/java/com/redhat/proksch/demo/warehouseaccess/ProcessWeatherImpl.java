@@ -59,6 +59,7 @@ public class ProcessWeatherImpl implements ProcessWeather {
 	catch (Exception e) {
 		System.err.println(e.getMessage());
 	}
+	System.out.println(sw.toString());
         return new String( sw.toString() );
         //return new String( warehouses );
     }
