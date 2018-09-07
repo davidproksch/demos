@@ -50,7 +50,6 @@ public class GetWeather{
 	public Weather getWeather(@RequestParam("zip") String zip) {
 		Weather w = new Weather();
 
-		w = getWeacherCache("48362");
 		return w;
 	}
 	@GetMapping("/weather/cache")
