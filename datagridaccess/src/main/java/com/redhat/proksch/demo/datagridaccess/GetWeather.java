@@ -51,6 +51,7 @@ public class GetWeather{
 		System.err.println(weather);
 
 	}
+
 	@GetMapping("/weather/cache")
 	public Weather getWeatherCache(@RequestParam("zip") String zip) {
 		Weather w = new Weather();
