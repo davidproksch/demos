@@ -18,8 +18,8 @@ NewWarehouseRest nwi = new NewWarehouseRest();
 </tr>
 <%
 StringBuffer sb = new StringBuffer();
-List<Map<String,String>> l = nwi.getAllWarehouses();
-sb.append(l.toString());
+//List<Map<String,String>> l = nwi.getAllWarehouses();
+sb.append("Hello Friend!");
 
 //l.forEach(item -> {
 //        //System.err.println(item.get("name"));
