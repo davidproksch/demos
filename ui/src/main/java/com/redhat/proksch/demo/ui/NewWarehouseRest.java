@@ -26,6 +26,7 @@ public class NewWarehouseRest {
 		String j = response.readEntity(String.class);
 		ObjectMapper mapper = new ObjectMapper();
 		List<Map<String,String>> warehouses;
+System.err.println(warehouses);
 		try {
 			warehouses = mapper.readValue(j, List.class);
 			warehouses.forEach(w -> {
