@@ -24,22 +24,21 @@ public class CamelRouter extends RouteBuilder {
                 .apiProperty("base.path", "camel/")
                 .apiProperty("api.path", "/")
                 .apiProperty("host", "")
-//                .apiProperty("schemes", "")
                 .apiContextRouteId("doc-api")
             .component("servlet")
             .bindingMode(RestBindingMode.json);
         
-//
+
 	rest("/warehouses/all").description("Get all Warehouses")
 	    .get()
 	    .to("direct:getWarehouses");
 
 	from("direct:getWarehouses")
             .to("log:com.redhat.proksch?level=DEBUG")
-	    .to("jetty://http://warehouse-00-mbodemo.b9ad.pro-us-east-1.openshiftapps.com/all/?bridgeEndpoint=true")
+	    .to("jetty://http://warehouse-00-mbodemo.b9ad.pro-us-east-1.openshiftapps.com/all?bridgeEndpoint=true")
 	    .removeHeaders("CamelHttp*")
 	    .to("direct:processWeather");
-//
+
         from("direct:processWeather").description("Take the list of warehouses and get weather information for each one")
             .streamCaching()
             .to("bean:warehousesService?method=getWarehouses");     
