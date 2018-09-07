@@ -10,7 +10,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     wapi = process.env.weather_api_key || process.env.WEATHER_API_KEY ;
 
 var getWeather = function(zip, wapi,res) {
-	var myURL = 'http://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&appid='+wapi;
+	var myURL = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&zip='+zip+',us&appid='+wapi;
 	request(myURL, function (error, response, body) {
 		res.json(body);
 		//res.send(body);
