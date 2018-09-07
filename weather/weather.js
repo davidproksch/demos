@@ -11,7 +11,8 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 var getWeather = function(zip, wapi,res) {
 	var myURL = 'http://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&appid='+wapi;
 	request(myURL, function (error, response, body) {
-		res.send(body);
+		res.json(body);
+		//res.send(body);
 	});
 };
 
