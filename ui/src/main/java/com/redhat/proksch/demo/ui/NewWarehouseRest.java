@@ -23,7 +23,7 @@ public class NewWarehouseRest {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(warehouseService).path(warehousePath);
 
-		System.err.println(target)
+		System.err.println(target);
 
 		Response response = target.request(MediaType.APPLICATION_JSON).get();
 		String j = response.readEntity(String.class);
