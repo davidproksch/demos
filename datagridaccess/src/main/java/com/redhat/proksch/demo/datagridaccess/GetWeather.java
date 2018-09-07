@@ -57,7 +57,7 @@ public class GetWeather{
                 HttpEntity<Weather> entity; 
 		entity = new HttpEntity<Weather>(weather, headers);
 	
-		StringBuffer u = new StringBuffer(url)append("/rest/weather/").append(weather.getZip().trim());	
+		StringBuffer u = new StringBuffer(url).append("/rest/weather/").append(weather.getZip().trim());	
 		restTemplate.exchange(u.toString(), HttpMethod.POST,
                                 entity, Weather.class);
 
