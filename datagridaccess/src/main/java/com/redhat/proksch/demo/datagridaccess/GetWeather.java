@@ -46,11 +46,10 @@ public class GetWeather{
 		return mappingJackson2HttpMessageConverter;
 	}
 
-	@GetMapping("/weather")
-	public Weather getWeather(@RequestParam("zip") String zip) {
-		Weather w = new Weather();
+	@Post("/weather/stash")
+	public void getWeather(@RequestBody Weather weather) {
+		System.err.println(weather);
 
-		return w;
 	}
 	@GetMapping("/weather/cache")
 	public Weather getWeatherCache(@RequestParam("zip") String zip) {
