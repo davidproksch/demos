@@ -18,6 +18,7 @@ NewWarehouseRest nwi = new NewWarehouseRest();
 </tr>
 <%
 StringBuffer sb = new StringBuffer();
+nwi.getAllWarehouses();
 //List<Map<String,String>> l = nwi.getAllWarehouses();
 sb.append("Hello Friend!");
 
