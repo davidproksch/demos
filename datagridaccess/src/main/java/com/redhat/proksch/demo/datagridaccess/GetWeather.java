@@ -75,6 +75,7 @@ public class GetWeather{
 			responseEntity = restTemplate.getForEntity(url,
                         Weather.class);
                         w = (Weather)responseEntity.getBody();
+			w.setWeather(w.getWeather());
 			w.setFound(true);
 		}	
 		catch (HttpClientErrorException hcd) {
