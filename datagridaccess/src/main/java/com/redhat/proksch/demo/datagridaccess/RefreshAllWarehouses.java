@@ -66,7 +66,7 @@ public class RefreshAllWarehouses {
 
 	private List<Warehouse> getWarehouseList() { 
 		RestTemplate restTemplate = new RestTemplate();
-		String url = "http://warehouse-00-mbodemo.6923.rh-us-east-1.openshiftapps.com/all";
+		String url = "http://warehouse-00-mbodemo.b9ad.pro-us-east-1.openshiftapps.com/all";
 		restTemplate.getMessageConverters().add(setMessageConverters());
 		ResponseEntity responseEntity = restTemplate.getForEntity(url,
 			Warehouse[].class);
