@@ -34,7 +34,7 @@ sb.append(l.toString());
 //                .append(item.get("state"))
 //                .append("</td>")
 //                .append("</tr>");
-});
+//});
 %>
 <%= sb.toString() %>
 </table>
