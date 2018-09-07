@@ -22,6 +22,9 @@ public class NewWarehouseRest {
 		System.out.println("---------> " + warehousePath);
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(warehouseService).path(warehousePath);
+
+		System.err.println(target)
+
 		Response response = target.request(MediaType.APPLICATION_JSON).get();
 		String j = response.readEntity(String.class);
 		ObjectMapper mapper = new ObjectMapper();
