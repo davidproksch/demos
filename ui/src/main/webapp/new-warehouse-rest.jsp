@@ -19,6 +19,8 @@ NewWarehouseRest nwi = new NewWarehouseRest();
 <%
 StringBuffer sb = new StringBuffer();
 List<Map<String,String>> l = nwi.getAllWarehouses();
+sb.append(l.toString());
+/*
 l.forEach(item -> {
         //System.err.println(item.get("name"));
         sb.append("<tr>")
@@ -32,6 +34,7 @@ l.forEach(item -> {
                 .append(item.get("state"))
                 .append("</td>")
                 .append("</tr>");
+*/
 });
 %>
 <%= sb.toString() %>
