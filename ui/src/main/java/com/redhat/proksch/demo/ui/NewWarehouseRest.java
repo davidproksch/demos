@@ -39,7 +39,7 @@ System.err.println(warehouses);
 			m.put("WRONG",e.getMessage());
 			warehouses.add(m);
 		}
-		//System.out.println(warehouses);
+		System.out.println(warehouses);
 		return warehouses;
         }
 
