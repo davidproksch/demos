@@ -24,6 +24,7 @@ public class OldWarehouseInfo {
         private PreparedStatement allWH = null;
         private PreparedStatement oneWH = null;
 
+
 	public void connectToDB() {
            mysql_user = System.getenv("mysql_user");
             mysql_password = System.getenv("mysql_password");
